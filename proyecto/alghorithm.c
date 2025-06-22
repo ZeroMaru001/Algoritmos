@@ -8,8 +8,7 @@ void create_matrix(int n, int matrix[n][n], int value){
 	}
 }
 
-void create_matrix_file(char *name){
-	int n = matrix_length(name);
+void create_matrix_file(char *name,int n,char alghorithm[20], int matrix[n][n]){
 	if (n == 0) return;
 
 	FILE *fptr;
@@ -17,17 +16,12 @@ void create_matrix_file(char *name){
 
 	if (fptr == NULL) return;
 
-	char alghorithm[20];
 	fscanf(fptr, "%s", alghorithm);
-
-	int matrix[n][n];
 
 	for (int i = 0; i < n; i++){
 		for(int j = 0 ; j < n; j++) fscanf(fptr, "%d ", &matrix[i][j]);
 	}
 
-	printf("%s \n", alghorithm);
-	print_matrix(n, matrix);
 	fclose(fptr);
 }
 

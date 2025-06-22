@@ -6,7 +6,7 @@
 
 void create_matrix(int n, int matrix[n][n], int value);
 
-void create_matrix_file(char *name);
+void create_matrix_file(char *name, int n, char alghorithm[20], int matrix[n][n]);
 
 int matrix_length(char *name);
 

@@ -9,8 +9,6 @@ void print_shortest_path(int n, int array[n],int source){
 }
 
 int main(){
-	int n = 5;
-	int matrix[n][n], mst[n][n];
 	/*create_matrix(n, matrix, 0);
 	insert_edge(n, matrix, 0, 1, 2);
 	insert_edge(n, matrix, 0, 4, 4);
@@ -40,7 +38,12 @@ int main(){
 	printf("-------List of shortest paths from %d------\n", source);
 	dijkstra(n, source, matrix, route);
 	print_shortest_path(n, route, source);*/
-	char *name = "matrix1.txt";
-	printf("length: %d\n",  matrix_length(name));
-	create_matrix_file(name);
+	char *name = "matrix1.txt";//change route
+	//printf("length: %d\n",  matrix_length(name));
+	int n = matrix_length(name);
+	int matrix[n][n], mst[n][n];
+	char alghorithm[20];
+	create_matrix_file(name, n, alghorithm, matrix);
+	printf("length: %d\n", n);
+	print_matrix(n, matrix);
 }
