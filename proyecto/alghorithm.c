@@ -1,10 +1,47 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "alghorithm.h"
 
 void create_matrix(int n, int matrix[n][n], int value){
 	for (int i = 0; i < n; i++){
 		for(int j = 0 ; j < n; j++) matrix[i][j] = value;
 	}
+}
+
+void create_matrix_file(char *name){
+	int n = matrix_length(name);
+	if (n == 0) return;
+
+	FILE *fptr;
+	fptr = fopen(name, "r");
+
+	if (fptr == NULL) return;
+
+	char alghorithm[20];
+	fscanf(fptr, "%s", alghorithm);
+
+	int matrix[n][n];
+
+	for (int i = 0; i < n; i++){
+		for(int j = 0 ; j < n; j++) fscanf(fptr, "%d ", &matrix[i][j]);
+	}
+
+	printf("%s \n", alghorithm);
+	print_matrix(n, matrix);
+	fclose(fptr);
+}
+
+int matrix_length(char *name){
+	FILE *fptr;
+	fptr = fopen(name, "r");
+	int length = 0;
+
+	if (fptr == NULL) return 0;
+	char ch;
+	while((ch = fgetc(fptr)) != EOF) if (ch == '\n') length++;
+
+	fclose(fptr);
+	return length - 1;
 }
 
 void insert_edge(int n, int matrix[n][n], int u, int v, int w){

@@ -6,6 +6,10 @@
 
 void create_matrix(int n, int matrix[n][n], int value);
 
+void create_matrix_file(char *name);
+
+int matrix_length(char *name);
+
 void insert_edge(int n, int matrix[n][n], int u, int v, int w);
 
 void print_matrix(int n, int matrix[n][n]);
